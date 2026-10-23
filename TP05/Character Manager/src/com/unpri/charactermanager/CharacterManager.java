@@ -9,7 +9,9 @@ public class CharacterManager {
 
     private final ArrayList<Character> characters = new ArrayList<>();
 
+    // Menambahkan karakter dan menolak nama duplikat
     public boolean addCharacter(Character character) {
+
         if (character == null || character.getName() == null) {
             return false;
         }
@@ -22,84 +24,91 @@ public class CharacterManager {
         return true;
     }
 
+    // Mencari karakter berdasarkan nama
     public Character findByName(String name) {
+
         if (name == null) {
             return null;
         }
 
-        for (Character c : characters) {
-            if (c.getName() != null
-                    && c.getName().equalsIgnoreCase(name)) {
-                return c;
+        for (Character character : characters) {
+            if (character.getName() != null
+                    && character.getName().equalsIgnoreCase(name)) {
+                return character;
             }
         }
 
         return null;
     }
 
+    // Menghapus karakter berdasarkan nama
     public boolean removeCharacter(String name) {
-        Character c = findByName(name);
 
-        if (c == null) {
+        Character character = findByName(name);
+
+        if (character == null) {
             return false;
         }
 
-        characters.remove(c);
+        characters.remove(character);
         return true;
     }
 
+    // Menghitung jumlah karakter
     public int getTotalCharacters() {
         return characters.size();
     }
 
+    // Mengembalikan salinan daftar karakter (defensive copy)
     public ArrayList<Character> getAllCharacters() {
         return new ArrayList<>(characters);
     }
 
+    // Menghitung rata-rata level karakter
     public double getAverageLevel() {
+
         if (characters.isEmpty()) {
             return 0.0;
         }
 
         int total = 0;
 
-        for (Character c : characters) {
-            total += c.getLevel();
+        for (Character character : characters) {
+            total += character.getLevel();
         }
 
         return (double) total / characters.size();
     }
 
+    // Mencari karakter berdasarkan tipe
     public ArrayList<Character> findByType(CharacterType type) {
+
         ArrayList<Character> result = new ArrayList<>();
 
         if (type == null) {
             return result;
         }
 
-        for (Character c : characters) {
-            if (c.getType() == type) {
-                result.add(c);
+        for (Character character : characters) {
+            if (character.getType() == type) {
+                result.add(character);
             }
         }
 
         return result;
     }
 
-    /**
-     * Menghitung jumlah karakter berdasarkan tipe.
-     * @param type tipe karakter yang dihitung
-     * @return jumlah karakter dengan tipe tersebut
-     */
+    // Menghitung jumlah karakter berdasarkan tipe
     public int countByType(CharacterType type) {
+
         int count = 0;
 
         if (type == null) {
             return count;
         }
 
-        for (Character c : characters) {
-            if (c.getType() == type) {
+        for (Character character : characters) {
+            if (character.getType() == type) {
                 count++;
             }
         }

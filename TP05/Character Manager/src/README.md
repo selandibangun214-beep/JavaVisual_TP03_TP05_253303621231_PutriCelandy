@@ -59,3 +59,35 @@ Analisis Bagian D membahas:
 5. Hubungan reference dengan defensive copy.
 
 **Link Google Docs:** [Buka Analisis Bagian D](https://docs.google.com/document/d/1SSIexANsS156Lu-YPYz8dWmNxNgLhOr5TXCtoL8DPhk/edit?usp=sharing)
+
+
+## TP8 — Implementasi GUI Character Manager
+
+### 1. Hasil Implementasi
+
+Aplikasi Character Manager dikembangkan menggunakan Java Swing. Jendela utama menampilkan daftar karakter secara dinamis, meliputi nama, tipe karakter, dan level. Aplikasi juga menampilkan statistik rata-rata level seluruh karakter yang dikelola oleh CharacterManager.
+
+**Screenshot sebelum perubahan data:**
+
+![alt text](image.png)
+
+**Screenshot sesudah perubahan data:**
+
+![alt text](image-1.png)
+
+### 2. Aliran Data dan Prinsip MVC
+
+Aliran data dimulai dari Main.java yang membuat objek CharacterManager dan menambahkan data karakter. CharacterManager menyimpan serta mengelola kumpulan karakter, sedangkan MainWindow mengambil data tersebut melalui method getAllCharacters() dan menampilkannya menggunakan JLabel dalam perulangan. MainWindow juga mengambil nilai rata-rata level dari CharacterManager untuk ditampilkan di bagian bawah daftar. Pembagian ini menerapkan prinsip MVC: Character dan CharacterManager berperan sebagai Model, MainWindow sebagai View, sedangkan Main menginisialisasi objek dan menghubungkan Model dengan View. Pada aplikasi yang lebih besar, pengendalian interaksi dapat dipisahkan ke Controller tersendiri.
+
+### 3. Karakter Baru
+
+- **Freya — MAGE, level 12:** dipilih untuk menambah variasi level pada tipe penyihir.
+- **Aldric — HEALER, level 20:** dipilih untuk menambahkan tipe penyembuh dan memperluas variasi level karakter.
+
+### 4. Statistik
+
+Setelah kelima karakter ditambahkan, jumlah level adalah 65 dengan rata-rata 13,00. Nilai tersebut dihitung berdasarkan data karakter yang dikelola oleh CharacterManager, bukan ditulis secara tetap di GUI.
+
+### 5. Dokumentasi Analisis
+
+Link Google Docs Bagian D: [https://docs.google.com/document/d/1rtMcYTYg-kMUiohkacpK41TwihrFspRS_YsXwG5iSBs/edit?usp=sharing]
